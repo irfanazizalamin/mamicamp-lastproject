@@ -38,10 +38,8 @@ export default {
     }
   },
   methods: {
-    addPost (event) {
-      console.log(event)
-      const post = event.post
-      const postId = event['.key']
+    addPost ({post}) {
+      const postId = post['.key']
       // Vue.set(obj, propertyName, value)
       this.$set(sourceData.posts, postId, post) // sourceData.posts[postId] = post
       this.$set(this.thread.posts, postId, postId) // this.thread.posts[postId] = postId
