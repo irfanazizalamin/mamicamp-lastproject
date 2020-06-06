@@ -2,7 +2,7 @@
   <div class="thread">
     <div>
       <p>
-        <a href="#">{{ thread.title }}</a>
+        <a :href="`/thread/${thread['.key']}`">{{ thread.title }}</a>
       </p>
       <p class="text-faded text-xsmall">
         By <a href="#">{{user.name}}</a>, {{ thread.publishedAt }}.
