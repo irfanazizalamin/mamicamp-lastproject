@@ -2,6 +2,21 @@
   <div class="col-large push-top">
     <h1>{{ thread.title }}</h1>
     <PostList :posts="posts" />
+    <form @submit.prevent="addPost">
+      <div class="form-group">
+        <textarea 
+          name="" 
+          id="" 
+          cols="30" 
+          rows="10"
+          class="form-input"
+          v-model="newPostText"
+        ></textarea>
+      </div>
+      <div class="form-action">
+        <button class="btn-blue">Submit post</button>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -20,7 +35,8 @@ export default {
   },
   data () {
     return {
-      thread: sourceData.threads[this.$route.params.id]
+      thread: sourceData.threads[this.$route.params.id],
+      newPostText: ''
     }
   },
   computed: {
@@ -29,6 +45,23 @@ export default {
       return Object.values(sourceData.posts)
         .filter(post => postIds.includes(post['.key'])
       )
+    }
+  },
+  methods: {
+    addPost () {
+      const postId = 'greatPost' + Math.random()
+      const post = {
+        text: this.newPostText,
+        publishedAt: Math.floor(Date.now() / 1000),
+        threadId: this.id,
+        userId: 'ALXhxjwgY9PinwNGHpfai6OWyDu2',
+        '.key': postId
+      }
+      // Vue.set(obj, propertyName, value)
+      this.$set(sourceData.posts, postId, post) // sourceData.posts[postId] = post
+      this.$set(this.thread.posts, postId, postId) // this.thread.posts[postId] = postId
+      this.$set(sourceData.users[post.userId].posts, postId, postId)
+      this.newPostText = ''
     }
   }
 }

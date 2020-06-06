@@ -8,7 +8,7 @@
 <script>
 import sourceData from '@/data'
 import ThreadList from '../components/ThreadList'
-console.log(Object.values(sourceData.threads))
+console.log(sourceData)
 export default {
   components: {
     ThreadList
