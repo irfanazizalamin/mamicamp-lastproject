@@ -40,7 +40,7 @@ export default {
       }
       this.postText = ''
 
-      this.$emit('save', { post })
+      // this.$emit('save', { post })
       this.$store.dispatch('createPost', post)
     }
   }
