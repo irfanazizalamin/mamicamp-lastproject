@@ -73,7 +73,7 @@ figcaption {
 .forum-list {
     padding: 0;
     background: white;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
 .forum-list .forum-listing {
@@ -504,7 +504,7 @@ figcaption {
 }
 
 .post-content blockquote.small {
-/* / / display: flex; */
+    display: flex;
     position: relative;
     flex-direction: column;
     border: 2px solid rgba(152, 152, 152, 0.15);
@@ -2425,7 +2425,7 @@ figure {
 
 .col-full {
     flex-basis: 98%;
-    margin: 0 1%;
+    margin: 0 5%;
 }
 
 @media (max-width: 820px) {

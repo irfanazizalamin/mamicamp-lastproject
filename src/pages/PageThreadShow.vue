@@ -1,5 +1,5 @@
 <template>
-  <div class="col-large push-top">
+  <div class="push-top col-full">
     <h1>{{ thread.title }}</h1>
     <p>
       By <a href="#" class="link-unstyled">Robin</a>, <AppDate :timestamp="thread.publishedAt"/>.
@@ -30,12 +30,10 @@ export default {
       required: true
     }
   },
-  data () {
-    return {
-      thread: this.$store.state.threads[this.$route.params.id]
-    }
-  },
   computed: {
+    thread () {
+      return this.$store.state.threads[this.$route.params.id]
+    },
     posts () {
       const postIds = Object.values(this.thread.posts)
       return Object.values(this.$store.state.posts)
